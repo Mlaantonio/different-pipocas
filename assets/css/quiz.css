@@ -1,0 +1,118 @@
+:root {
+    --primary-color: #ffcc00; /* Amarelo da pipoca */
+    --secondary-color: #a30000; /* Vermelho do cinema/embalagem */
+    --text-color: #333;
+    --background-color: #f7f7f7;
+    --card-background: #ffffff;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.quiz-container {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+}
+
+h2 {
+    color: var(--text-color);
+    margin-top: 0;
+}
+
+.question-card {
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fffaf0; /* Um tom de creme */
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.option-button {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.option-button:hover {
+    background-color: #ffd84d; /* Amarelo mais claro */
+    transform: translateY(-2px);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Estilização da Seção de Resultado */
+#result-content h3 {
+    color: var(--secondary-color);
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+#result-content p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* Botões de Ação */
+#restart-button, .cta-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#restart-button {
+    background-color: #ccc;
+    color: var(--text-color);
+}
+
+.cta-button {
+    background-color: var(--secondary-color);
+    color: white;
+    box-shadow: 0 4px var(--text-color);
+    transition: all 0.2s;
+}
+
+.cta-button:active {
+    box-shadow: 0 2px var(--text-color);
+    transform: translateY(2px);
+}
