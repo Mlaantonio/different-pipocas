@@ -1,395 +1,336 @@
 /*
-Atule Tecnology
+Developed by Mario Coldor
 #RusiaIsATerroristState
 */
 
+/* ==== VARIÁVEIS DO TEMA ==== */
+:root {
+  --color-primary: #e0519a;
+  --color-secondary: #00bcd4;
+  --color-dark: #333333;
+  --color-light-bg: #e7e7e7;
+  --color-overlay-bg: #a1a1a1f8;
+  --font-cursive: "Updock", cursive;
+  --font-sans: "Nunito", Arial, sans-serif;
+}
+
+/* ==== RESETS & GLOBAIS ==== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-  }
-  
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* Centraliza os itens verticalmente */
-    background-color: #e7e7e7;
-    height: 140px; /* Define a altura fixa da barra */
-    padding: 0 20px; /* Espaçamento lateral */
-    color: white;
-  }
-  
-  .logo img {
-    height: 100px; /* Mantém a altura da logo */
-    width: auto; /* Proporção automática */
-    display: block;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  body .icones {
-    width: 5vh;
-  }
+body {
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  background-color: #ffffff;
+}
 
-/* Botão de menu (hambúrguer) */
-  .menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: #e0519a; /*cor do menu hamburguer*/
-    font-size: 24px;
-    cursor: pointer;
-  }
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
-/* Estilos para o menu principal */
- .menu {
-    display: flex;
-    gap: 20px;
-  }
-
-  .menu ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-  }
-  
-  .menu ul li a {
-    text-decoration: none;
-    color:  #e0519a; /*cor da fonte*/
-    font-size: 16px;
-    transition: color 0.3s;
-  }
-  
-  .menu ul li a:hover {
-    color: #00bcd4;
-  }
-
-  .container{
-  flex-direction: row;
+.container {
   width: 100%;
-  margin: 0 auto;
-  margin: 10px;
-  margin-top: 20px;
-  }
-
- /* Estilos para telas menores */
-@media (max-width: 1024px) {
-    .menu {
-      display: none; /* Esconde o menu por padrão */
-      flex-direction: column;
-      background-color: #a1a1a1f8; /*cor do fundo menu flutuante*/
-      position: absolute;
-      top: 140px;
-      right: 0;
-      width: 100vw;
-      z-index: 10;
-    }
-  
-    .menu ul {
-      flex-direction: column;
-      gap: 10px;
-    }
-  
-    .menu ul li a {
-      padding: 10px;
-      text-align: left;
-    }
-  
-    .menu.show {
-      display: flex; /* Mostra o menu quando ativado */
-    }
-  
-    .menu-toggle {
-      display: block; /* Mostra o botão hambúrguer */
-      width: 20vh;
-    }
-
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 15px;
 }
-  /*Estilos das seções
- ---------------------------------------------------------------------------------------------
- Styles for the home-section
- ---------------------------------------------------------------------------------------------
-  */
-#home-section {
-  /* IMPORTANTE: Substitua 'your-background-image.jpg' pelo caminho real da sua imagem. */
-  /* Exemplo: se sua imagem estiver em 'assets/img/hero-background.jpg' */
-  /* e o arquivo styles.css estiver em 'assets/css/', o caminho será '../img/hero-background.jpg' */
-  background-image: url('../img/home/home.jpg');
-  background-size: cover; /* Garante que a imagem cubra toda a área */
-  background-position: center center; /* Centraliza a imagem */
-  background-repeat: no-repeat; /* Evita que a imagem se repita */
-  
-  width: 100vw; /* Largura total da viewport (tela) */
-  height: 80vh; /* Altura total da viewport (tela) */
 
-  /* Usando Flexbox para centralizar o conteúdo */
+/* ==== COMPONENTE: BOTÃO GLOBAL ==== */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border: 2px solid var(--color-primary);
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, border-color 0.3s ease, border-radius 0.3s ease;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #c73e83;
+  border-color: #c73e83;
+  border-radius: 30px;
+}
+
+/* ==== NAVBAR & MENU ==== */
+.navbar {
   display: flex;
-  flex-direction: column; /* Empilha os itens verticalmente */
-  justify-content:flex-start; /* Centraliza verticalmente */
-  align-items: center; /* Centraliza horizontalmente */
-  text-align: left; /* Centraliza o texto dentro dos elementos filhos */
-
-  color: #e0519a; /* Cor do texto (branco). Ajuste conforme sua imagem de fundo. */
-  padding: 20px; /* Adiciona um espaçamento interno para o conteúdo não colar nas bordas */
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-light-bg);
+  height: 140px;
+  padding: 0 20px;
 }
 
-/* Estilos opcionais para melhorar a legibilidade do texto sobre a imagem */
+.logo-topo img {
+  height: 100px;
+  width: auto;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: var(--color-primary);
+  font-size: 16px;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.menu ul li a:hover {
+  color: var(--color-secondary);
+}
+
+/* ==== SEÇÃO: HOME ==== */
+#home-section {
+  background-image: url('../img/home/home.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--color-primary);
+  padding: 20px;
+}
+
 #home-section h1 {
-  font-family: "Updock", cursive;
-  font: size 10vh; /* Tamanho da fonte do título. Ajuste conforme necessário. */
-  font-size: 10vw;
+  font-family: var(--font-cursive);
+  font-size: clamp(3rem, 8vw, 6rem);
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra escura para texto claro */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #home-section p {
-  font-family: "Updock", cursive;
-  font-size: 4rem; /* Tamanho da fonte do parágrafo. Ajuste conforme necessário. */
-  margin-bottom: 3rem;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Sombra escura para texto claro */
+  font-family: var(--font-cursive);
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  margin-bottom: 2.5rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* Garante que o botão seja claramente visível */
-#home-section .btn {
-  /* --- Estilos para o botão retangular com preenchimento sólido --- */
-  display: inline-block;    /* Garante que o elemento <a> se comporte como um bloco para padding, mas flua com o texto. */
-  padding: 12px 24px;       /* Espaçamento interno do botão (vertical e horizontal). Ajuste conforme o seu gosto. */
-  background-color: #e0519a; /* Cor de fundo sólida (ex: vermelho do tema). */
-  color: white;               /* Cor do texto do botão (branco para contraste com o fundo vermelho). */
-  border: 2px solid #e0519a;    /* Borda da mesma cor do fundo para um visual coeso ou 'border: none;' se preferir sem borda. */
-  border-radius: 20px;           /*  arredondamento dos cantos, tornando o botão perfeitamente retangular ou arredondado. */
-  text-align: center;         /* Centraliza o texto dentro do botão. */
-  text-decoration: none;      /* Remove o sublinhado padrão de links. */
-  font-weight: bold;          /* Deixa o texto em negrito para maior destaque. */
-  font-size: 1.1em;           /* Tamanho da fonte ligeiramente aumentado. Ajuste se necessário. */
-  text-transform: uppercase;  /* Transforma o texto para maiúsculas, conferindo um estilo mais forte. */
-  letter-spacing: 1px;        /* Adiciona um pequeno espaçamento entre as letras para um visual mais refinado. */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Efeito de transição suave para o hover. */
-}
-
-#home-section .btn:hover,
-#home-section .btn:focus {
-  background-color: #e0519a; /* Um tom de vermelho mais escuro para o hover */
-  border-color: #e0519a;
-  color: white;
-  border-radius: 30px;           /*  arredondamento dos cantos, tornando o botão perfeitamente retangular ou arredondado. */
-}
-/* ===================================================================
-   Seção Services - Layout Flexbox
-=================================================================== */
-#service img {
-  max-width: 100%;
-  height: auto;
-}
-
-#services .imagem-corpo {
-    flex: 1;
-    padding: 0 20px;
-}
-
+/* ==== SEÇÃO: SERVIÇOS ==== */
 #services .services-layout {
   display: flex;
-  flex-direction: column; /* Padrão: empilhado (mobile-first) */
-  flex-wrap: wrap;
-  max-width: 100vw;
-  overflow-x: hidden;
-  box-sizing: border-box;
-  padding: 20px;
-  gap: 40px; /* Espaçamento entre os itens (ajuste conforme necessário) */
-}
-
-#services h2 {
-  margin-left: 2vh;
-  margin-right: 2vh;
-}
-
-#services p {
-  margin-left: 2vh;
-  margin-right: 2vh;
-}
-
-#services h3 {
-  margin-left: 2vh;
-  margin-right: 2vh;
+  flex-direction: column;
+  gap: 40px;
+  padding: 20px 0;
 }
 
 #services .service-content-column {
   flex: 1;
-  max-width: 90vh;
-  /* Os itens flex ocuparão a largura total quando empilhados.
-     Em telas maiores, o 'flex: 1' abaixo cuidará da largura. */
 }
 
-/* Garante que o botão seja claramente visível */
-#services .btn {
-  /* --- Estilos para o botão retangular com preenchimento sólido --- */
-  display: inline-block;    /* Garante que o elemento <a> se comporte como um bloco para padding, mas flua com o texto. */
-  padding: 12px 24px;       /* Espaçamento interno do botão (vertical e horizontal). Ajuste conforme o seu gosto. */
-  background-color: #e0519a; /* Cor de fundo sólida (ex: vermelho do tema). */
-  color: white;               /* Cor do texto do botão (branco para contraste com o fundo vermelho). */
-  border: 2px solid #e0519a;    /* Borda da mesma cor do fundo para um visual coeso ou 'border: none;' se preferir sem borda. */
-  border-radius: 20px;           /*  arredondamento dos cantos, tornando o botão perfeitamente retangular ou arredondado. */
-  text-align: center;         /* Centraliza o texto dentro do botão. */
-  text-decoration: none;      /* Remove o sublinhado padrão de links. */
-  font-weight: bold;          /* Deixa o texto em negrito para maior destaque. */
-  font-size: 1.1em;           /* Tamanho da fonte ligeiramente aumentado. Ajuste se necessário. */
-  text-transform: uppercase;  /* Transforma o texto para maiúsculas, conferindo um estilo mais forte. */
-  letter-spacing: 1px;        /* Adiciona um pequeno espaçamento entre as letras para um visual mais refinado. */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Efeito de transição suave para o hover. */
+#services h2 {
+  color: var(--color-dark);
+  margin-bottom: 10px;
 }
 
-#services .btn:hover,
-#services .btn:focus {
-  background-color: #e0519a; /* Um tom de vermelho mais escuro para o hover */
-  border-color: #e0519a;
-  color: white;
-  border-radius: 30px;
+#services hr {
+  border: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  width: 60px;
+  margin-bottom: 20px;
 }
 
-/*-----------------------------------------------------------------------------------
-  - Fim da Seção Services -
-=====================================================================================
+#services p.large {
+  font-size: 1.15rem;
+  margin-bottom: 25px;
+}
 
-====================================================================================
-    - Seção ABOUT - 
------------------------------------------------------------------------------------*/
+#services .row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+#services .icones {
+  width: 36px;
+  height: auto;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+#services h3 {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  color: var(--color-dark);
+  margin-bottom: 8px;
+}
+
+#services .col-lg2 p {
+  color: #555555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ==== SEÇÃO: QUEM SOMOS ==== */
 #about .about-layout {
   display: flex;
-  flex-direction: column; /* Padrão: empilhado (mobile-first) */
-  flex-wrap: wrap;
-  max-width: 100vw;
-  overflow-x: hidden;
-  box-sizing: border-box;
-  padding: 20px;
-  gap: 40px; /* Espaçamento entre os itens (ajuste conforme necessário) */
+  flex-direction: column;
+  gap: 40px;
+  padding: 20px 0;
 }
 
 #about .col-ab {
   flex: 1;
-  width: 100%;
-  box-sizing: border-box;
   text-align: justify;
-  /* Os itens flex ocuparão a largura total quando empilhados.
-     Em telas maiores, o 'flex: 1' abaixo cuidará da largura. */
+  line-height: 1.6;
+  color: #444444;
 }
 
-#about .imagem-corpo {
-  max-width: 80vh;
+#about h2, #about h3 {
+  color: var(--color-dark);
+  margin-bottom: 15px;
 }
 
-#about h2 {
-  margin-left: 2vh;
+#about p {
+  margin-bottom: 15px;
 }
 
-#about img {
-  max-width: 100%;
-  height: auto;
-  }
-
-/*
- ---------------------------------------------------------------------------------------------
- END about-section
-==============================================================================================
-*/
-
-/*==========================================================================================--
-     - portifolio - section
- ---------------------------------------------------------------------------------------------
-  */
+/* ==== SEÇÃO: PORTFÓLIO ==== */
 .blocos-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-  height: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-  overflow-y: auto; /* rola para baixo se necessário */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  justify-items: center;
+  padding: 40px 0;
 }
 
 .bloco {
-  width: 200px;
-  margin: 10px;
   text-align: center;
-  flex-shrink: 0; /* evita encolher demais */
+  max-width: 220px;
 }
 
 .bloco img {
   width: 200px;
   height: 200px;
   object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  margin-bottom: 12px;
+}
+
+.bloco h3 {
+  font-size: 1.2rem;
+  color: var(--color-dark);
+  margin-bottom: 5px;
 }
 
 .bloco p {
-  margin-top: 10px;
-  font-size: 16px;
+  font-size: 0.9rem;
+  color: #666666;
 }
-  /*
- ---------------------------------------------------------------------------------------------
- END PORTIFOLIO-section
- ---------------------------------------------------------------------------------------------
- 
- =============================================================================================
-  - Seção - TEAM - 
- -------------------------------------------------------------------------------------------*/
- #team .chefs {
+
+/* ==== SEÇÃO: EQUIPE ==== */
+#team .chefs {
+  padding: 30px 0;
+}
+
+#team .chefs ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  gap: 20px;
+  list-style: none;
+}
 
+#team .chefs img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
 }
 
 #team .row-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: justify;
-  margin: 10px;
-  margin-right: 30px;
+  max-width: 800px;
+  margin: 20px auto 0;
+  text-align: center;
+  line-height: 1.6;
+  color: #444444;
+  padding: 0 15px;
 }
 
-/*-------------------------------------------------------------------------------------------
-   - Fim de TEAM -
-===========================================================================================
+#team .row-center h2 {
+  margin-bottom: 15px;
+}
 
-============================================================================================
- - Seção do CONTATO
-------------------------------------------------------------------------------------------- */
+/* ==== SEÇÃO: CONTATO ==== */
+#contact .row-c {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
 
- #contact .row-c {
-    align-items: center;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    margin-right: 30px;
-    margin-bottom: 30px;
- }
+#contact .row-c h2 {
+  margin-bottom: 10px;
+}
+
+#contact .row-c hr {
+  border: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  width: 50px;
+  margin: 0 auto 20px;
+}
+
+#contact .row-c p {
+  color: #555555;
+  margin-top: 10px;
+  line-height: 1.5;
+}
 
 .form-section {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
   max-width: 900px;
   margin: auto;
+  padding: 20px 0;
 }
 
-.form-box,
-.info-box {
-  flex: 1 1 400px;
+.form-box, .info-box {
+  flex: 1 1 380px;
   background-color: #ffffff;
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
-h2 {
-  margin-bottom: 15px;
-  color: #333;
+.form-box h2, .info-box h2 {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
 }
 
 label {
@@ -401,99 +342,152 @@ label {
 
 textarea {
   width: 100%;
-  height: 120px;
-  padding: 10px;
-  border: none;
+  height: 130px;
+  padding: 12px;
+  border: 1px solid #dddddd;
   border-radius: 8px;
-  box-shadow: inset 2px 2px 5px #ccc, inset -2px -2px 5px #fff;
   resize: none;
   font-size: 14px;
+  font-family: var(--font-sans);
   background-color: #f9f9f9;
+  transition: border-color 0.3s;
 }
 
-button {
+textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+form button {
   width: 100%;
   margin-top: 15px;
   padding: 12px;
   border: none;
   border-radius: 8px;
-  background-color: #444;
+  background-color: var(--color-dark);
   color: #fff;
   font-weight: bold;
   font-size: 16px;
   cursor: pointer;
-  box-shadow: 3px 3px 8px #bbb;
-  transition: 0.3s;
+  transition: background-color 0.3s;
 }
 
-button:hover {
-  background-color: #222;
+form button:hover {
+  background-color: #111111;
 }
-/*===========================================================================================
-    - FOOTER
--------------------------------------------------------------------------------------------*/
 
+.info-box p {
+  margin-bottom: 12px;
+  color: #555;
+}
+
+.info-box a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* ==== RODAPÉ ==== */
 .rodape {
-    background-color:#a1a1a1f8;
-    width: 100%;
-    overflow-x: hidden;
-    padding: 20px 10px;
-    box-sizing: border-box;
-  }
-  
-  .sociais {
-  text-align: center;
-  padding-bottom: 3vh;
-  }
+  background-color: var(--color-overlay-bg);
+  width: 100%;
+  padding: 30px 15px;
+  margin-top: 40px;
+}
 
-  .sociais ul {
+.sociais {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sociais:last-child {
+  margin-bottom: 0;
+}
+
+.sociais ul {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
+  gap: 20px;
   list-style: none;
-  padding: 0;
-  margin: 0 auto;  
-  }
- 
-  .sociais img {
+}
+
+.sociais img {
   width: 32px;
   height: 32px;
+  transition: transform 0.2s;
 }
-/* Telas maiores (ex: tablets e desktops, >= 768px) */
+
+.sociais img:hover {
+  transform: scale(1.1);
+}
+
+.sociais span {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.sociais a {
+  color: #111111;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sociais a:hover {
+  text-decoration: underline;
+}
+
+/* ==== MEDIA QUERIES (Telas de Tablet e Desktop) ==== */
 @media (min-width: 768px) {
+  #services .services-layout,
   #about .about-layout {
-    flex-direction: row; /* Lado a lado */
+    flex-direction: row;
+    align-items: center;
   }
 
-  #about .col-ab {
-    flex: 1;
-    padding: 0 20px;
-    text-align: justify;
-     /* Cada coluna ocupa espaço igual (efetivamente 50% para dois itens) */
-    /* Se preferir um controle mais estrito de 50% sem crescimento/encolhimento:
-       flex-grow: 0;
-       flex-shrink: 0;
-       flex-basis: 50%;
-    */
+  #services .row {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-
- #services .services-layout {
-    flex-direction: row; /* Lado a lado */
-  }
-
-  #services .service-content-column {
-    flex: 1;
-     /* Cada coluna ocupa espaço igual (efetivamente 50% para dois itens) */
-    /* Se preferir um controle mais estrito de 50% sem crescimento/encolhimento:
-       flex-grow: 0;
-       flex-shrink: 0;
-       flex-basis: 50%;
-    */
-  }
   #portifolio .blocos-container {
-    height: 45vh;
-    }
-
+    height: auto;
   }
+}
+
+/* ==== MEDIA QUERIES (Mobile Interativo) ==== */
+@media (max-width: 1024px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 140px;
+    right: 0;
+    width: 100%;
+    background-color: var(--color-overlay-bg);
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  .menu.show {
+    display: flex;
+  }
+
+  .menu ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+  }
+
+  .menu ul li a {
+    display: block;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    color: #ffffff;
+  }
+  
+  .menu ul li a:hover {
+    background-color: var(--color-primary);
+    color: #ffffff;
+  }
+}
