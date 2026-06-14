@@ -1,8 +1,8 @@
-name: Deploy via FTP Locaweb
+name: Deploy via ftp
 on:
   push:
     branches:
-      - main  # O deploy só vai rodar quando atualizar a branch main
+      - main
 
 jobs:
   deploy:
@@ -10,12 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout do código
-      uses: actions/checkout@v4  # Versão atualizada e estável
+      uses: actions/checkout@v3
 
     - name: FTP Deploy Locaweb
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5 # Uma alternativa de FTP se a da Locaweb falhar
+      uses: locaweb/ftp-deploy@1.0.0
       with:
-        server: ${{ secrets.HOST }} 
-        username: ${{ secrets.USER }}
+        host: ${{ secrets.HOST }} 
+        user: ${{ secrets.USER }}
         password: ${{ secrets.PASS }}
-        local-dir: "./"  # Como o projeto está na raiz da pasta, usamos "./" em vez de "dist"
+        localDir: "."  # Indica que os arquivos estão na raiz do seu projeto local
