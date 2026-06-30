@@ -18,4 +18,5 @@ jobs:
         host: ${{ secrets.HOST }} 
         user: ${{ secrets.USER }}
         password: ${{ secrets.PASS }}
-        localDir: "."  # Indica que os arquivos estão na raiz do seu projeto local
+        localDir: "."  # Indica que os arquivos estão na raiz do seu projeto local no Github
+        remoteDir: "public_html" # Destino: Subpasta dentro do servidor
